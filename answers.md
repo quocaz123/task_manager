@@ -105,5 +105,5 @@ JOIN users u ON p.authorId = u.id;
 
 Part 2 - Node.js Mini Project
 Backend - Vercel : https://task-manager-xdw0.onrender.com/
-FrontEnd - CloudeFlare : 
+FrontEnd - CloudeFlare : https://task-manager-bnp.pages.dev/
 
