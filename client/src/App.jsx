@@ -1,8 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 
-const API = "http://localhost:8080/tasks";
+const DEFAULT_API_BASE = "http://localhost:3000";
+
+function joinUrl(base, path) {
+    const b = String(base || "").replace(/\/+$/, "");
+    const p = String(path || "").replace(/^\/+/, "");
+    return `${b}/${p}`;
+}
 
 export default function App() {
+    const API = useMemo(() => {
+        const base = import.meta.env.VITE_API_URL || DEFAULT_API_BASE;
+        return joinUrl(base, "tasks");
+    }, []);
+
     const [tasks, setTasks] = useState([]);
     const [input, setInput] = useState("");
     const [editId, setEditId] = useState(null);
